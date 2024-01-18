@@ -1,0 +1,62 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '~@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$MASTER-TEM-primary: mat.define-palette(mat.$indigo-palette);
+$MASTER-TEM-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$MASTER-TEM-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$MASTER-TEM-theme: mat.define-light-theme((
+  color: (
+    primary: $MASTER-TEM-primary,
+    accent: $MASTER-TEM-accent,
+    warn: $MASTER-TEM-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($MASTER-TEM-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+
+
+
+
+
+
+
+
+start 
+@forward './core/theming/theming' show define-light-theme, define-dark-theme,
+  define-palette, get-contrast-color-from-palette, get-color-from-palette,
+  get-color-config, get-typography-config, get-density-config,
+  $theme-ignore-duplication-warnings;
+@forward './core/theming/palette' show $red-palette, $pink-palette, $indigo-palette,
+  $purple-palette, $deep-purple-palette, $blue-palette, $light-blue-palette, $cyan-palette,
+  $teal-palette, $green-palette, $light-green-palette, $lime-palette, $yellow-palette,
+  $amber-palette, $orange-palette, $deep-orange-palette, $brown-palette, $grey-palette,
+  $gray-palette, $blue-grey-palette, $blue-gray-palette, $light-theme-background-palette,
+  $dark-theme-background-palette, $light-theme-foreground-palette, $dark-theme-foreground-palette;
+end

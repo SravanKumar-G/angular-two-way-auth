@@ -1,0 +1,220 @@
+<mat-menu #menu="matMenu" >
+  <div  class="cust_option_box">
+    <div class="cust_serach_opt" (click)="$event.stopPropagation()"><input type="text" placeholder="search"  [(ngModel)]="searchText" #myInput><div *ngIf="this.searchText != ''" class="close" (click)="cler_val()"></div> </div>
+    <ng-scrollbar
+    #scrollable
+    track="all"
+    pointerEventsMethod="scrollbar" class="option_innbox"
+
+  >
+ 
+    <div class="ooptin_valu"  *ngFor="let item of filteredCustomerData | searchFilter: searchText; let i = index" >
+      <div (click)="cus_selected_menus(i, item)"> {{ item.text }}</div>
+     </div>
+
+</ng-scrollbar>
+    
+    </div>
+</mat-menu>
+<mat-menu #menu1="matMenu">
+  <div class="cust_option_box">
+    <div class="cust_serach_opt" (click)="$event.stopPropagation()"><input type=" text" placeholder="search"  [(ngModel)]="searchText" #myInput><div *ngIf="this.searchText != ''" class="close" (click)="cler_val()"></div> </div>
+    <ng-scrollbar
+    #scrollable
+    track="all"
+    pointerEventsMethod="scrollbar" class="option_innbox"
+
+  >
+      <div class="ooptin_valu"  *ngFor="let data of filteredDataToSearch | searchFilter: searchText; let i = index" >
+        <div (click)="cus_selected_menus1(i, data)"> {{ data.text }}</div>
+       </div>
+      </ng-scrollbar>
+    </div>
+  </mat-menu>
+<form [formGroup]="myform" (ngSubmit)="onSubmit()" class="form" >
+    <div mat-dialog-title>{{this.data[0]}}</div>
+    <div mat-dialog-content>
+      <div>
+        <div class="cust_input login_form" >
+         
+          <!-- <mat-form-field >
+            <mat-label>Select Customer</mat-label>
+            <input matInput value="{{find_cus_name}}" placeholder="Placeholder">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            
+          </mat-form-field> -->
+        </div>
+       
+      </div>
+        <div class="cust_input login_form">
+<!-- <mat-form-field appearance="fill" class="cust_input">
+  <mat-label>Select Customer</mat-label>
+  <input type="email" matInput value="kjdlsdjf"  placeholder="Ex. pat@example.com">
+
+              </mat-form-field> -->
+              <div   class="cust_select_box" [matMenuTriggerFor]="menu" (menuOpened)="cler_val()"> </div>
+              <mat-form-field appearance="fill" class="cust_input">
+                <mat-label>Select Customer</mat-label>
+                <mat-select formControlName="customerCode" [(value)]="find_cus_code" placeholder="Select Customer">
+                  <mat-option
+                      *ngFor="let customer of filteredCustomerData"
+                      [value]="customer.value" (click)="getLocations(customer.value)"
+                    >
+                      {{ customer.text }}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="!myform.controls['customerCode'].valid">
+                  {{ getError('customer') }}
+                </mat-error>
+              </mat-form-field> 
+              <!-- <div  *ngIf="isMenuOpenselect"   class="cust_option_box">
+                <div class="cust_serach_opt"><input type="text" placeholder="search" [ngModel]="data.name" (ngModelChange)="testMethod($event)"  #menu> </div>
+                <div class="option_innbox">
+                  <div  *ngFor="let item of filteredCustomerData; let i = index" >
+                    <div (click)="cus_selected_menus(i, item)"> {{ item.text }}</div>
+                   </div>
+                </div>
+                </div> -->
+              <!-- <mat-form-field appearance="fill">
+                <mat-label>Enter </mat-label>
+                <input matInput placeholder="locationId" formControlName="locationId" required>
+                <mat-error *ngIf="!myform.controls['locationId'].valid">
+                    {{ getError('locat') }}
+                  </mat-error>
+              </mat-form-field> -->
+          <!-- <mat-form-field appearance="fill" class="cust_input">
+            <mat-label>Select Customer</mat-label>
+            <mat-select formControlName="customerCode" [(value)]="find_cus_code" placeholder="Select Customer">
+
+              <div class="fixed">
+                <mat-form-field
+                  [floatLabel]="'never'"
+                  style="margin: 5px;padding-left: 10px;padding-right: 10px;
+                                    border: 1.5px solid rgba(216, 220, 230, 0.87); border-radius: 5px;
+                                    position: absolute;top: 0;width: calc(100% - 30px);background: white;z-index: 100;height:65px;"
+                >
+                  <input
+                    matInput
+                    placeholder=""
+                    style="padding-left:10px"
+                    (input)="customerlookup($event.target)"
+                    #inputFilter
+                  />
+                  <i class="fa fa-search" matPrefix></i>
+                  <i
+                    class="fa fa-times"
+                    matSuffix
+                    (click)="customerclean(inputFilter)"
+                  ></i>
+                </mat-form-field>
+              </div>
+              <div style="padding-top: 80px">
+                <mat-option
+                  *ngFor="let customer of filteredCustomerData"
+                  [value]="customer.value" (click)="getLocations(customer.value)"
+                >
+                  {{ customer.text }} ({{customer.value}})
+                </mat-option>
+              </div>
+            </mat-select>
+            <mat-error *ngIf="!myform.controls['customerCode'].valid">
+              {{ getError('customer') }}
+            </mat-error>
+          </mat-form-field> -->
+          <div  (click)="toggleMenus1()" class="cust_select_box" [matMenuTriggerFor]="menu1" (menuOpened)="cler_val()"> </div>
+           <mat-form-field appearance="fill" class="cust_input">
+            <mat-label>Select Location</mat-label>
+            <mat-select formControlName="locationId" [(value)]="find_loc_id" placeholder="Select Location">
+                <mat-option
+                  *ngFor="let data of filteredDataToSearch"
+                  [value]="data.value"
+                >
+                  {{ data.text }}
+                </mat-option>
+             
+            </mat-select>
+            <mat-error *ngIf="!myform.controls['locationId'].valid">
+              {{ getError('loca') }}
+            </mat-error>
+          </mat-form-field>
+          <!-- <div  *ngIf="isMenuOpenselect1"   class="cust_option_box">
+            <div class="cust_serach_opt"><input type=" text" placeholder="search"   #menu1></div>
+            <div class="option_innbox">
+              <div  *ngFor="let data of filteredDataToSearch; let i = index" >
+                <div (click)="cus_selected_menus1(i, data)"> {{ data.text }}</div>
+               </div>
+            </div>
+            </div> -->
+              <!-- <mat-form-field appearance="fill" class="cust_input">
+                <mat-label>Select Location</mat-label>
+                <mat-select formControlName="locationId" [(value)]="find_loc_id" placeholder="Select Location">
+
+                  <div class="fixed">
+                    <mat-form-field
+                      [floatLabel]="'never'"
+                      style="margin: 5px;padding-left: 10px;padding-right: 10px;
+                                    border: 1.5px solid rgba(216, 220, 230, 0.87); border-radius: 5px;
+                                    position: absolute;top: 0;width: calc(100% - 30px);background: white;z-index: 100;height:65px;"
+                    >
+                      <input
+                        matInput
+                        placeholder=""
+                        style="padding-left:10px"
+                        (input)="lookup($event.target)"
+                        #inputFilter
+                      />
+                      <i class="fa fa-search" matPrefix></i>
+                      <i
+                        class="fa fa-times"
+                        matSuffix
+                        (click)="clean(inputFilter)"
+                      ></i>
+                    </mat-form-field>
+                  </div>
+                  <div style="padding-top: 80px">
+                    <mat-option
+                      *ngFor="let data of filteredDataToSearch"
+                      [value]="data.value"
+                    >
+                      {{ data.text }}
+                    </mat-option>
+                  </div>
+                </mat-select>
+                <mat-error *ngIf="!myform.controls['locationId'].valid">
+                  {{ getError('loca') }}
+                </mat-error>
+              </mat-form-field> -->
+        </div>
+
+<!-- <div>
+  <div class="cust_input login_form" >
+    <div #toggleButton (click)="toggleMenus()" style="position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 52px;"> </div>
+    <mat-form-field appearance="fill">
+      <mat-label>Fill form field</mat-label>
+      <input matInput value="{{find_cus_name}}" placeholder="Placeholder">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+
+    </mat-form-field>
+  </div>
+  <div  *ngIf="isMenuOpenselect"   style="height: 200px;">
+    <div ><input type=" text"  #menu></div>
+   <div  *ngFor="let room of filteredCustomerData; let i = index">
+    <div (click)="cus_selected_menus(i, room)"> {{ room.text }}</div>
+   </div>
+    </div>
+</div> -->
+
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button mat-dialog-close>No Thanks</button>
+      <!-- <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Ok</button> -->
+      <div class="form-element creat_bt " fxLayout="column" fxLayoutAlign="space-between stretch">
+        <button mat-flat-button color="primary" [disabled]="!myform.valid"   type="submit" class="login_bt_curved">
+          Approve
+        </button>
+      </div>
+    </div>
+    </form>

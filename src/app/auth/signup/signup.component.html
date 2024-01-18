@@ -1,0 +1,315 @@
+
+<img class="loin_log_img" src="../../../assets/images/logione_logo.png" style="    width: 145px;
+position: fixed;
+z-index: 9;
+left: 3%;
+top: 4%;">
+
+<div class="bg-100 login_warp"  fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center none" fxFlex="100%" fxFlex.gt-sm="100%" style="background-color: #f2f4f5;" >
+
+    <!-- <div  fxLayout="column" fxFlex="55%" fxLayoutAlign="end"  fxHide.sm fxHide.xs>
+        <img class="login_img" src="../../../assets/images/login_screen.png">
+    </div> -->
+   <!--    <div  fxLayout="row" fxFlex="55%" fxLayoutAlign="end center"  fxHide.sm fxHide.xs>
+       <div style="width: 100%;
+       height: initial;
+       padding-top: 40px;
+       padding-right: 40px;
+       padding-bottom: 40px;
+       padding-left: 40px;
+       max-width: 489px;
+       background-color: #fff;">
+            <img src="../../../assets/images/login_img.png" style="width: 100%;">
+       </div>
+    </div>-->
+    <div fxLayout="column" fxFlex="50%"  fxLayoutAlign="center center">
+    <div class=" login_box">
+        <div class="login_box_inn" >
+            <img class="loin_log_img" style="margin: 0 auto;display: block;width: 50%;" src="../../../assets/images/login_gif.png">
+            <div  class="login_form">
+               <!--   <div class="text-50 log_titile">Login with your Credentials to access the warehouse</div>
+
+               <div class="cust_input">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Enter your email</mat-label>
+                        <input matInput placeholder="pat@example.com" [formControl]="email" required>
+                        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                      </mat-form-field>
+                </div> -->
+                <!-- <div *ngIf="email_show" class="cust_input_search_mob" style="width: 70%;margin: 0 auto;">
+                    <mat-form-field color="primary"  appearance="fill" >
+                        <mat-label>Enter Mobile Number</mat-label>
+                        <input matInput placeholder="Enter Mobile Number" [formControl]="mobileNumber" autocomplete="off"
+                        autocomplete="false"
+                        autocorrect="off" type="text" pattern="\d*" (keypress)="numberOnly($event)" maxlength="10" >
+                        <mat-error *ngIf="mobileNumber.invalid">{{getErrorMessage()}}</mat-error>
+                      </mat-form-field>
+                      <div style="position: absolute;
+                      width: 28px;
+                      height: auto;
+                      right: 20px;
+                      top: 0px;
+                      padding: 8px;
+                      display: flex;
+                      align-items: center;
+                      cursor: pointer;
+                      transform: rotate(180deg);" (click)="viewotp()">
+                        <img style="    width: 100%;" src="../../../assets/images/left_arrow.png">
+                      </div>
+                </div> -->
+                <div *ngIf="otp_show" class="otp_sect">
+
+                    <!-- <input type="text" maxlength="1" #tex1 (keyup)="move($event, '', tex1, tex2)">
+                    <input type="text" maxlength="1" #tex2 (keyup)="move($event, tex1, tex2, tex3)">
+                    <input type="text" maxlength="1" #tex3 (keyup)="move($event, tex2, tex3, tex4)">
+                    <input type="text" maxlength="1" #tex4 (keyup)="move($event, tex3, tex4, '')">
+                    <a routerLink="backend" style="transform: rotate(180deg);width:30px;"><img style="width: 100%;" src="../../../assets/images/left_arrow.png"></a> -->
+                    <!-- <ngx-otp-input #contentPlaceholder  [config]="otpInputConfig" (otpChange)="handeOtpChange($event)" (fill)="handleFillEvent($event)">
+                    </ngx-otp-input> -->
+                </div>
+                <!-- <div style="position: absolute;
+                      width: 28px;
+                      height: auto;
+                      right: 20px;
+                      top: 0px;
+                      padding: 8px;
+                      display: flex;
+                      align-items: center;
+                      cursor: pointer;
+                      transform: rotate(180deg);" (click)="viewotp()">
+                        <img style="    width: 100%;" src="../../../assets/images/left_arrow.png">
+                      </div> -->
+                      <div  style="width:360px;margin:0 auto;">
+
+                        <form [formGroup]="myform" (ngSubmit)="onSubmit()" class="form" >
+                          <div class="cust_input login_form">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Enter Your Full Name</mat-label>
+                                    <input
+            type="text"
+            matInput
+            placeholder="Enter Your Full Name"
+            formControlName="fullName"
+            autocomplete="off"
+
+          />
+          <mat-error *ngIf="myform.controls['fullName'].invalid">
+            {{ getError('fullName') }}
+          </mat-error>
+                                  </mat-form-field>
+                            </div>
+                            <div class="cust_input login_form">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Enter Your Email</mat-label>
+                                    <input
+            type="text"
+            matInput
+            placeholder="Enter Your Email"
+            formControlName="email"
+            autocomplete="off"
+
+          />
+          <mat-error *ngIf="myform.controls['email'].invalid">
+            {{ getError('email_req') }}
+          </mat-error>
+          <mat-error *ngIf="myform.controls['email'].invalid">
+            {{ getError('email_req1') }}
+          </mat-error>
+                                  </mat-form-field>
+                            </div>
+                            <div class="cust_input login_form">
+                                <mat-form-field appearance="fill">
+                                      <mat-label>Enter Your Mobile Number</mat-label>
+                                    <input
+            type="text"
+            matInput
+            placeholder="mobileNumber"
+            formControlName="mobileNumber"
+            autocomplete="off"
+            (keypress)="numberOnly($event)" maxlength="10"
+          />
+          <mat-error *ngIf="myform.controls['mobileNumber'].invalid">
+            {{ getError('mobileNumber') }}
+          </mat-error>
+                                  </mat-form-field>
+                            </div>
+                            <!-- <div class="cust_input_search_mob">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Enter your customerCode</mat-label>
+                                    <input
+            type="text"
+            matInput
+            placeholder="customerCode"
+            formControlName="customerCode"
+
+          />
+          <mat-error *ngIf="myform.controls['customerCode'].invalid">
+            {{ getError('customerCode') }}
+          </mat-error>
+                                  </mat-form-field>
+                            </div> -->
+                            <div class="cust_input login_form">
+                              <!-- <mat-form-field appearance="fill">
+                                <mat-label>Enter your customerCode</mat-label>
+                                <mat-select disableOptionCentering formControlName="customerCode" (closed)="onPanelClose()">
+
+                                  <mat-form-field appearance="fill" class="cust_input" style="width: 100%;">
+                                    <mat-label>Search</mat-label>
+                                    <input matInput
+                                           [formControl]="filterControl"
+                                           type="text"
+                                           name="filter-options"
+                                           id="filter-options"
+                                           placeholder="Search">
+                                    </mat-form-field>
+
+                                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option.name"
+                                      [ngClass]="{'hide': !option.show}">
+                                      {{option.name}}
+                                    </mat-option>
+                                </mat-select>
+                                <mat-error *ngIf="myform.controls['customerCode'].invalid">
+                                  {{ getError('customerCode') }}
+                                </mat-error>
+                              </mat-form-field> -->
+<!--                              <mat-form-field appearance="fill" class="cust_input">-->
+<!--                                <mat-label>Select Customer Name</mat-label>-->
+<!--                                <mat-select formControlName="customerCode" placeholder="Search Customer Name">-->
+<!--                                  <div class="fixed">-->
+<!--                                    <mat-form-field-->
+<!--                                      [floatLabel]="'never'"-->
+<!--                                      style="margin: 5px;padding-left: 10px;padding-right: 10px;-->
+<!--                                                    border: 1.5px solid rgba(216, 220, 230, 0.87); border-radius: 5px;-->
+<!--                                                    position: absolute;top: 0;width: calc(100% - 30px);background: white;z-index: 100;height:65px;"-->
+<!--                                    >-->
+<!--                                      <input-->
+<!--                                        matInput-->
+<!--                                        placeholder="Select Customer Name"-->
+<!--                                        style="padding-left:10px"-->
+<!--                                        (input)="lookup($event.target)"-->
+<!--                                        autocomplete="off"-->
+<!--                                        #inputFilter-->
+<!--                                      />-->
+<!--                                      <i class="fa fa-search" matPrefix></i>-->
+<!--                                      <i-->
+<!--                                        class="fa fa-times"-->
+<!--                                        matSuffix-->
+<!--                                        (click)="clean(inputFilter)"-->
+<!--                                      ></i>-->
+<!--                                    </mat-form-field>-->
+<!--                                  </div>-->
+<!--                                  <div style="padding-top: 80px">-->
+<!--                                    <mat-option-->
+<!--                                      *ngFor="let data of filteredDataToSearch"-->
+<!--                                      [value]="data.value"-->
+<!--                                    >-->
+<!--                                      {{ data.text }}-->
+<!--                                    </mat-option>-->
+<!--                                  </div>-->
+<!--                                </mat-select>-->
+<!--                                <mat-error *ngIf="myform.controls['customerCode'].invalid">-->
+<!--                                  {{ getError('customerCode') }}-->
+<!--                                </mat-error>-->
+<!--                              </mat-form-field>-->
+
+                                <mat-form-field appearance="fill">
+                                  <mat-label>Description</mat-label>
+                                  <textarea matInput
+                                            placeholder="enter your description here"
+                                            formControlName="description" 
+                                            autocomplete="off" rows="3" style="resize: none;">
+
+                                  </textarea>
+                                  <mat-error *ngIf="myform.controls['description'].invalid">
+                                    {{ getError('description') }}
+                                  </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <!-- <div class="cust_input_search_mob">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Enter your accessRequest</mat-label>
+                                    <input
+            type="text"
+            matInput
+            placeholder="accessRequest"
+            formControlName="accessRequest"
+
+          />
+          <mat-error *ngIf="myform.controls['accessRequest'].invalid">
+            {{ getError('accessRequest') }}
+          </mat-error>
+                                  </mat-form-field>
+                            </div> -->
+                            <!-- <div class="cust_input_search_mob">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Enter your status</mat-label>
+                                    <input
+            type="text"
+            matInput
+            placeholder="status"
+            formControlName="status"
+
+          />
+          <mat-error *ngIf="myform.controls['status'].invalid">
+            {{ getError('status') }}
+          </mat-error>
+                                  </mat-form-field>
+                            </div> -->
+                            <!-- <div class="cust_input_search_mob">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Enter your password</mat-label>
+                                    <input
+                                    type="password"
+                                    matInput
+                                    placeholder="Password"
+                                    formControlName="password"
+                                  />
+                                  <mat-error *ngIf="!myform.controls['password'].valid">
+                                    {{ getError('pass') }}
+                                  </mat-error>
+                                  </mat-form-field>
+                            </div> -->
+                            <div class="form-element creat_bt " fxLayout="column" fxLayoutAlign="space-between stretch">
+                                <button mat-flat-button color="primary"   type="submit" class="login_bt_curved">
+                                  send request
+                                </button>
+                              </div>
+                        </form>
+
+                      </div>
+                <div  class="forg_pass_wrp" fxLayout="row" fxLayoutAlign="center center" >
+                <div >
+                    <div style="font-size: 0.8rem;color: #9FA8B2;">
+                        <!-- {{loginmode? 'Don’t have an account?' : 'already have'}}  &nbsp; -->
+                        already have account &nbsp;
+                    </div>
+                </div>
+                <div class="forgot_pass" [routerLink]="['']">
+                     Click Here
+
+                </div>
+
+                </div>
+              <!--   <div class="cust_input singin_bt" fxLayout="column" fxLayoutAlign="center stretch" >
+                    <button mat-flat-button color="primary">Sigin in</button>
+                </div>
+                <div class="video_cont"  fxLayout="row" fxLayoutAlign="space-between center" >
+                    <div class="vid_text" fxFlex="65">How to use WMS, click here to watch the tutorial. </div>
+                    <div class="cust_input " fxFlex="35" fxLayout="row" fxLayoutAlign="end center" >
+                        <button mat-flat-button color="primary"><img class="play_bt" src="../../../assets/images/play_bt.png"> Watch Now</button>
+                    </div>
+                </div> -->
+                <!-- <div *ngFor="let item of location_list">
+                  {{item.CustomerName}}
+                </div> -->
+            </div>
+        </div>
+    </div>
+    </div>
+    <form [formGroup]="beComponentForm">
+      <div class="col-sm-12">
+
+      </div>
+    </form>
+</div>
+

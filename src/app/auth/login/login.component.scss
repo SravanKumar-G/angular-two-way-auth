@@ -1,0 +1,220 @@
+@import "../../../assets/scss/mixins";
+
+
+.login_warp
+{
+   @include heightwidth(initial,100vh);
+   .login_img{
+       @include heightwidth(80%,initial);
+   }
+   .login_box
+   {
+       @include heightwidth(100%,initial);
+       @include padding(40px,40px,40px,40px);
+    //    max-width: 320px;
+       .login_box_inn
+       {
+           @include heightwidth(100%, initial);
+           .loin_log_img
+           {
+               @include heightwidth(100%,initial)
+           }
+           .login_form
+           {
+            @include heightwidth(100%, initial);
+            .log_titile
+            {
+                @include font-size(0.80);
+                @include font-weight(500);
+                @include padding(0,0,28px,0);
+            }
+           }
+       }
+   }
+   #background{
+	width:100vw;
+	height:100vh;
+	position:fixed;
+	background-color:#d5233b;
+	clip-path:circle(0 at calc(0vw - 0em) calc(100vh - 0em));
+	transition: all 1s ease;
+}
+&.night{
+	color:white;
+	#background{
+		clip-path:circle(calc(100vw + 100vh) at calc(100vw - 3em) calc(100vh - 3em));
+		transition: all 1s ease;
+        z-index: 9;
+	}
+}
+}
+
+.pass_view_icon
+{
+    @include position(absolute,15px,12px,initial,initial);
+    cursor: pointer;
+    img{@include heightwidth(18px,initial)}
+}
+.forgot_pass
+{
+    color: #3062d0;
+    cursor: pointer;
+    @include font-size(0.80);
+}
+.singin_bt
+{
+    @include margin(15px,0,0,0);
+}
+.forg_pass_wrp
+{
+    @include margin(10px,0,0,0);
+}
+.video_cont
+{
+    @include margin(15px,0,0,0);
+    .vid_text
+    {
+        @include font-size(0.75);
+    }
+}
+.play_bt
+{
+    @include heightwidth(28px,initial);
+    @include margin(initial,initial,initial,-20px);
+    @include position(relative,2px,initial,initial,5px);
+}
+
+.otp_sect{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .otp_inn_con{
+        @include heightwidth(100%,auto);
+        @include padding(0,90px,0,90px);
+        .otp_text{
+            @include font-size(1);
+            @include font-weight(700);
+            display: flex;
+            align-items: center;
+            span{
+                @include font-size(0.85);
+                @include font-weight(500);
+                font-style: italic;
+            }
+        }
+        .otp_text_time{
+            @include font-size(0.80);
+        }
+        .reset_otp{
+            @include font-size(0.80);
+            cursor: pointer;
+        }
+      .reset_otp:hover{
+        color: #0072C0;
+        cursor: pointer;
+      }
+    }
+    input{
+        width: 50px;
+        margin: 20px;
+        height: 50px;
+        border-radius: 30px;
+        text-align: center;
+        font-size: 1.4rem;
+        border: transparent;
+        &:focus{
+            outline: none;
+        }
+    }
+}
+
+
+
+::ng-deep .mat-horizontal-stepper-header-container{
+    display: none !important;
+}
+
+.slide-right {
+    animation: 0.5s slide-right;
+  }
+  @keyframes slide-right {
+    from {
+        transform: translateY(-65%);
+    }
+    to {
+        transform: translateY(0%);
+    }
+  }
+
+.intro{
+  position: fixed;width: 100%;height: 100%;z-index: 99;background-color: #d5233b;
+
+  animation-name: scale-display--reversed;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 2s;
+
+ &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -1900px;
+    width: 270px;
+    height: 100%;
+    background: rgba(255,255,255, 0.3);
+    transform: skewX(-30deg);
+    animation-name: slide;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-delay: .5s;
+
+    animation-direction: alternate;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.13) 0%,
+        rgba(255, 255, 255, 0.13) 77%,
+        rgba(255, 255, 255, 0.5) 92%,
+        rgba(255, 255, 255, 0.0) 100%
+      );
+    }
+}
+
+@keyframes slide {
+    0% {
+      left: -1990;
+      top: -500;
+    }
+
+    100% {
+      left: 1900px;
+      top: 0;
+    }
+  }
+
+  @keyframes scale-display--reversed {
+	0% {
+		display: block;
+		opacity: 1;
+		transform: scale(1);
+		-webkit-transform: scale(1);
+	}
+	99% {
+		display: block;
+		opacity: 0;
+		transform: scale(0);
+		-webkit-transform: scale(0);
+	}
+	100% {
+		display: none;
+		opacity: 0;
+		transform: scale(0);
+		-webkit-transform: scale(0);
+	}
+}
+
+@media screen and (max-width: 730px) {
+    .intro{
+        display: none;
+    }
+}

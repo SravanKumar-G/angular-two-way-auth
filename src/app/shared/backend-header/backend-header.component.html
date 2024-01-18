@@ -1,0 +1,36 @@
+<div class="header_wrp" fxLayout="row"  fxLayoutAlign="space-between center" >
+    <div fxLayout="row" fxLayoutAlign=" center" fxFlex="100%" fxFlex.gt-sm="50%" >
+    <div class="con " [class.view_arrow]="arr_class" (click)="view_toggel()">
+        <div class="bar bg-400 arrow-top"></div>
+        <div class="bar bg-400 arrow-middle"></div>
+        <div class="bar bg-400 arrow-bottom"></div>
+      </div>
+
+      <div class="search_menu" fxLayout="row">
+          <input type="text" placeholder="Search " name="searchText" [(ngModel)]="searchText" #myInput>
+
+          <div *ngIf="this.searchText != ''" class="close" (click)="cler_val()"></div>
+      </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end center" [matMenuTriggerFor]="menu">
+        <div fxLayout="column" fxLayoutAlign="end end"  class="user_det_wrp">
+            <div class="user_det_name">{{ userobject.id }}</div>
+            <div class="user_det_post">{{ userobject.email }}</div>
+        </div>
+        <div  class="user_wrp">
+            <img src="../../../assets/images/user1.png" >
+        </div>
+
+
+        <!-- <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>more_vert</mat-icon>
+          </button> -->
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="singout()">
+              <mat-icon>logout</mat-icon>
+              <span>Logout</span>
+            </button>
+          </mat-menu>
+    </div>
+
+</div>

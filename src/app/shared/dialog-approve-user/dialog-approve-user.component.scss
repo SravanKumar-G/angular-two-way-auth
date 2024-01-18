@@ -1,0 +1,116 @@
+
+@import "../../../assets/scss/mixins";
+.inp {
+    width: 360px;
+  }
+  
+  .parent {
+    position: relative;
+  }
+  
+  .child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .fixed{
+      position: sticky;
+      top:0;
+      z-index: 999;
+  }
+
+  .cust_select_box{
+    position: absolute;
+              z-index: 1;
+              width: 100%;
+              height: 60px;
+  }
+  ::ng-deep.mat-menu-panel {
+    max-width: none !important;
+  }
+  // ::ng-deep.cdk-overlay-pane{
+   
+  //   .mat-menu-panel{
+  //     max-width: 540px;
+  //     min-width: 540px;
+  //   }
+  // }
+  .cust_option_box{
+    height: auto;width: 540px;
+    border: 1px solid #cccccc73;
+    padding: 5px 40px 20px 40px;
+    margin:-9px auto;
+    box-sizing: border-box;
+    .cust_serach_opt
+{
+    @include margin(0,0,0,0px);
+    background-image: url(../../../assets/images/search-normal.png);
+    background-repeat: no-repeat;
+    padding-left: 18px;
+    background-size: 14px;
+    background-position: 5px 10px;
+    position: relative;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    input{
+      @include font-size(1);
+        background-color: transparent;
+        border: none;
+        outline: none;
+        width: 100%;
+        height: 32px;
+        padding-right: 18px;
+        padding-left: 15px;
+       
+    }
+    ::placeholder{
+      @include font-size(1)
+    }
+    .close {
+      position: absolute;
+      right: 2px;
+      top: 7px;
+      width: 18px;
+      height: 18px;
+      opacity: 0.5;
+      cursor: pointer;
+    }
+    .close:hover {
+      opacity: 1;
+    }
+    .close:before, .close:after {
+      position: absolute;
+      left: 9px;
+      content: ' ';
+      height: 18px;
+      width: 2px;
+      background-color: #333;
+    }
+    .close:before {
+      transform: rotate(45deg);
+    }
+    .close:after {
+      transform: rotate(-45deg);
+    }
+}
+    // .cust_serach_opt{
+    //   input{
+    //     border: none;
+    //     outline: none;
+    //     height: 30px;
+    //     width: 100%;
+    //     margin-bottom: 5px;
+    //     @include font-size(0.90);
+    //   }
+    // }
+    .option_innbox
+    {
+      height: 150px;overflow-y: scroll;width: 100%;
+      .ooptin_valu{
+        @include font-size(0.90);
+        line-height: 24px;
+      }
+    }
+  }

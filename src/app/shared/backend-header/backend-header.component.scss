@@ -1,0 +1,187 @@
+@import "../../../assets/scss/mixins";
+
+.header_wrp
+{
+    @include padding(10px,15px,0px,15px);
+}
+
+// s menuicon
+.con,
+ .special-con {
+   cursor: pointer;
+   display: inline-block;
+   margin-top: 0px;
+ }
+ 
+ .bar {
+   display: block;
+   height: 2px;
+   width: 27px;
+   margin: 3px;
+   &:nth-child(1){
+       width: 16px;
+   }
+ }
+ 
+ .con {
+   width: auto;
+   -webkit-transition: all .7s ease;
+   -moz-transition: all .7s ease;
+   -ms-transition: all .7s ease;
+   -o-transition: all .7s ease;
+   transition: all .7s ease;
+ }
+ .bar {
+   -webkit-transition: all .7s ease;
+   -moz-transition: all .7s ease;
+   -ms-transition: all .7s ease;
+   -o-transition: all .7s ease;
+   transition: all .7s ease;
+ }
+ 
+ .con.view_arrow .top {
+   -webkit-transform: translateY(15px) rotateZ(45deg);
+   -moz-transform: translateY(15px) rotateZ(45deg);
+   -ms-transform: translateY(15px) rotateZ(45deg);
+   -o-transform: translateY(15px) rotateZ(45deg);
+   transform: translateY(15px) rotateZ(45deg);
+ }
+ 
+ .con.view_arrow .bottom {
+   -webkit-transform: translateY(-15px) rotateZ(-45deg);
+   -moz-transform: translateY(-15px) rotateZ(-45deg);
+   -ms-transform: translateY(-15px) rotateZ(-45deg);
+   -o-transform: translateY(-15px) rotateZ(-45deg);
+   transform: translateY(-15px) rotateZ(-45deg);
+ }
+ 
+ .con.view_arrow .middle {
+   width: 0;
+ }
+ 
+ .con.view_arrow .arrow-top {
+   -webkit-transform: rotateZ(45deg) translateY(0px);
+   -moz-transform: rotateZ(45deg) translateY(0px);
+   -ms-transform: rotateZ(45deg) translateY(0px);
+   -o-transform: rotateZ(45deg) translateY(0px);
+   transform: rotateZ(45deg) translateY(0px);
+   width: 14px;
+ }
+ 
+ .con.view_arrow .arrow-middle {
+   -webkit-transform: translateX(-14px);
+   -moz-transform: translateX(-14px);
+   -ms-transform: translateX(-14px);
+   -o-transform: translateX(-14px);
+   transform: translateX(-14px);
+ }
+ 
+ .con.view_arrow .arrow-bottom {
+   -webkit-transform: rotateZ(-45deg) translateY(0px);
+   -moz-transform: rotateZ(-45deg) translateY(0px);
+   -ms-transform: rotateZ(-45deg) translateY(0px);
+   -o-transform: rotateZ(-45deg) translateY(0px);
+   transform: rotateZ(-45deg) translateY(0px);
+   width: 14px;
+ }
+ 
+ 
+ 
+ 
+// e menuicon
+
+//s search
+.search_menu
+{
+    @include margin(0,0,0,15px);
+    background-image: url(../../../assets/images/search-normal.png);
+    background-repeat: no-repeat;
+    padding-left: 18px;
+    background-size: 14px;
+    background-position: 0px 0px;
+    position: relative;
+    input{
+        background-color: transparent;
+        border: none;
+        outline: none;
+        width: 200px;
+        padding-right: 18px;
+    }
+    .close {
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      width: 18px;
+      height: 18px;
+      opacity: 0.5;
+      cursor: pointer;
+    }
+    .close:hover {
+      opacity: 1;
+    }
+    .close:before, .close:after {
+      position: absolute;
+      left: 9px;
+      content: ' ';
+      height: 18px;
+      width: 2px;
+      background-color: #333;
+    }
+    .close:before {
+      transform: rotate(45deg);
+    }
+    .close:after {
+      transform: rotate(-45deg);
+    }
+}
+//e search
+
+//s
+.user_wrp
+{
+    
+    @include displaydiv(inherit);
+    @include padding(0,0,0px,10px);
+    img{
+        width: 40px;
+    }
+}
+.user_det_wrp
+{
+   
+    @include text-align(right);
+    .user_det_name
+    {
+        @include font-size(0.90);
+        @include font-weight(500);
+    }
+    .user_det_post
+    {
+        @include font-size(0.70);
+        @include font-weight(400);
+        @include padding(0,0px,0,15px);
+        background-image: url(../../../assets/images/downarrow.png);
+        background-size: 12px;
+        background-repeat: no-repeat;
+        display: inline;
+        background-position: left center;
+    }
+}
+//e
+
+
+   
+::ng-deep#mat-menu-panel-0{
+      max-width: auto !important;
+      min-width: auto !important;
+    }
+ 
+
+
+@media screen and (max-width: 730px){
+  .search_menu{
+    input{
+      width: 129px;
+    }
+  }
+}

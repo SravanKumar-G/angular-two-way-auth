@@ -1,0 +1,63 @@
+<form *ngIf="contact_cont" [formGroup]="myform" (ngSubmit)="onSubmit()" class="form" >
+<div mat-dialog-title>Set Password</div>
+<div mat-dialog-content>
+    <div class="cust_input_search_mob">
+          <mat-form-field  appearance="fill">
+            <mat-label>Enter your password</mat-label>
+            <input type="password"
+            matInput
+            placeholder="Password"
+            formControlName="password" matInput [type]="hide ? 'password' : 'text'" autocomplete="off">
+            <button type="button" style="right: -20px;" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="!myform.controls['password'].valid">
+                {{ getError('pass') }}
+              </mat-error>
+          </mat-form-field>
+    </div>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>No Thanks</button>
+  <!-- <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Ok</button> -->
+  <div class="form-element creat_bt " fxLayout="column" fxLayoutAlign="space-between stretch">
+    <button mat-flat-button color="primary"   type="submit" class="login_bt_curved">
+      Update
+    </button>
+  </div>
+</div>
+</form>
+
+<div *ngIf="!contact_cont" style="min-width: 500px;">
+<h1 mat-dialog-title style="margin-bottom: 7px;">Contact Us </h1>
+<div mat-dialog-content>
+  <div class="cont_table">
+    <table>
+      <tr>
+        <th>Contact on Email</th>
+        <th>Corporate Office</th>
+      </tr>
+      <tr>
+        <td width="50%" valign="top">Get in touch with us for general enquiries on <br>enquiries-mll@mahindra.com<br>
+
+          Get in touch with us for RFQ enquiries on<br><br>Email ID :<a target="_blank" href="mailto: mllpresales@mahindra.com"> mllpresales@mahindra.com</a> </td>
+        <td width="50%" valign="top">10th & 11th Floor, Arena Space, Plot No 20, Jogeshwari-Vikhroli Link Road, Near Majas Depot, Jogeshwari (East), Mumbai- 400 060, Maharashtra, India.
+<br><br>
+          Email ID :<a target="_blank" href="mailto: enquiries-mll@mahindra.com"> enquiries-mll@mahindra.com</a> </td>
+      </tr>
+    </table>
+  </div>
+
+</div>
+<div mat-dialog-actions fxLayout="row" fxLayoutAlign="end stretch" style="margin-bottom: 0px;margin-top: 5px;
+padding-bottom: 0px;
+min-height: auto;">
+ 
+  <div class="form-element creat_bt " mat-dialog-close>
+    <button mat-flat-button color="primary"    class="login_bt_curved">
+      close
+    </button>
+  </div>
+</div>
+</div>

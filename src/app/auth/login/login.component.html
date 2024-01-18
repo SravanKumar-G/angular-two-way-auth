@@ -1,0 +1,243 @@
+<img class="loin_log_img" src="../../../assets/images/logione_logo.png" style="    width: 145px;
+position: fixed;
+z-index: 9;
+left: 3%;
+top: 4%;">
+
+<div class="bg-100 login_warp " [ngClass]="wel_ani ? 'night' : '' "  fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center none" fxFlex="100%" fxFlex.gt-sm="100%" style="background-color: #f2f4f5;" >
+
+    <!-- <div  fxLayout="column" fxFlex="55%" fxLayoutAlign="end"  fxHide.sm fxHide.xs>
+        <img class="login_img" src="../../../assets/images/login_screen.png">
+    </div> -->
+   <!--    <div  fxLayout="row" fxFlex="55%" fxLayoutAlign="end center"  fxHide.sm fxHide.xs>
+       <div style="width: 100%;
+       height: initial;
+       padding-top: 40px;
+       padding-right: 40px;
+       padding-bottom: 40px;
+       padding-left: 40px;
+       max-width: 489px;
+       background-color: #fff;">
+            <img src="../../../assets/images/login_img.png" style="width: 100%;">
+       </div>
+    </div>-->
+    <div fxLayout="column" fxFlex="50%"  fxLayoutAlign="center center">
+    <div class=" login_box">
+        <div class="login_box_inn" >
+            <img class="loin_log_img" src="../../../assets/images/login_gif.png">
+            <div  class="login_form">
+               <!--   <div class="text-50 log_titile">Login with your Credentials to access the warehouse</div>
+
+               <div class="cust_input">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Enter your email</mat-label>
+                        <input matInput placeholder="pat@example.com" [formControl]="email" required>
+                        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                      </mat-form-field>
+                </div> -->
+                <!-- <div *ngIf="email_show" class="cust_input_search_mob" style="width: 70%;margin: 0 auto;">
+                    <mat-form-field color="primary"  appearance="fill" >
+                        <mat-label>Enter Mobile Number</mat-label>
+                        <input matInput placeholder="Enter Mobile Number" [formControl]="mobileNumber" autocomplete="off"
+                        autocomplete="false"
+                        autocorrect="off" type="text" pattern="\d*" (keypress)="numberOnly($event)" maxlength="10" >
+                        <mat-error *ngIf="mobileNumber.invalid">{{getErrorMessage()}}</mat-error>
+                      </mat-form-field>
+                      <div style="position: absolute;
+                      width: 28px;
+                      height: auto;
+                      right: 20px;
+                      top: 0px;
+                      padding: 8px;
+                      display: flex;
+                      align-items: center;
+                      cursor: pointer;
+                      transform: rotate(180deg);" (click)="viewotp()">
+                        <img style="    width: 100%;" src="../../../assets/images/left_arrow.png">
+                      </div>
+                </div> -->
+                <div *ngIf="otp_show" class="otp_sect">
+                  <div fxLayout="column" fxLayoutAlign="space-between center" class="otp_inn_con" >
+                    <div class="otp_text" style="margin-bottom: 10px;">Enter OTP code sent to your Email ID :  &nbsp;<span>{{this.myform.value.email}}</span></div>
+                    <div class="otp_text_time" style="margin-bottom: 10px;" *ngIf="otp_text_time">Expires In: {{otp_timeout}}</div>
+                    <a class="reset_otp" (click)="resend_otp()" *ngIf="reset_otp">Resend OTP</a>
+                  </div>
+                    <!-- <input type="text" maxlength="1" #tex1 (keyup)="move($event, '', tex1, tex2)">
+                    <input type="text" maxlength="1" #tex2 (keyup)="move($event, tex1, tex2, tex3)">
+                    <input type="text" maxlength="1" #tex3 (keyup)="move($event, tex2, tex3, tex4)">
+                    <input type="text" maxlength="1" #tex4 (keyup)="move($event, tex3, tex4, '')">
+                    <a routerLink="backend" style="transform: rotate(180deg);width:30px;"><img style="width: 100%;" src="../../../assets/images/left_arrow.png"></a> -->
+                    <ngx-otp-input #contentPlaceholder  [config]="otpInputConfig" (otpChange)="handeOtpChange($event)" (fill)="handleFillEvent($event)">
+                    </ngx-otp-input>
+                  <div fxLayout="column" fxLayoutAlign="space-between" class="otp_inn_con" style="padding-right: 35vh; text-align: right" >
+
+                  </div>
+                </div>
+                <!-- <div style="position: absolute;
+                      width: 28px;
+                      height: auto;
+                      right: 20px;
+                      top: 0px;
+                      padding: 8px;
+                      display: flex;
+                      align-items: center;
+                      cursor: pointer;
+                      transform: rotate(180deg);" (click)="viewotp()">
+                        <img style="    width: 100%;" src="../../../assets/images/left_arrow.png">
+                      </div> -->
+                      <div  style="width:360px;margin:0 auto;" *ngIf="login_show">
+                        <!-- <mat-horizontal-stepper [linear]="isLinear" #stepper  style="background-color: transparent;">
+                          <mat-step [stepControl]="formEmailGroup" label="Email" >
+
+                                <form [formGroup]="formEmailGroup" class="form" >
+
+                                    <div class="cust_input_search_mob">
+                                      <mat-form-field appearance="fill">
+                                        <input type="text" matInput placeholder="Email" required formControlName="emailID">
+                                        <mat-error *ngIf="formEmailGroup.controls['emailID'].hasError('required')">
+                                                Email is required!
+                                            </mat-error>
+                                        <mat-error *ngIf="formEmailGroup.controls['emailID'].hasError('email')">
+                                            Email is not Valid!
+                                        </mat-error>
+                                      </mat-form-field>
+                                    </div>
+                                    <br/>
+                                    <button mat-raised-button color="primary" matStepperNext>Next</button>
+                                </form>
+
+                          </mat-step>
+
+                          <mat-step [stepControl]="formPasswordGroup"  label="Password" >
+
+                                <form [formGroup]="formPasswordGroup" (ngSubmit)="onSubmit()">
+
+                                    <div class="example-form">
+                                      <mat-form-field class="example-full-width">
+                                        <input type="password" matInput placeholder="Password" required formControlName="passWord">
+                                        <mat-error *ngIf="formPasswordGroup.controls['passWord'].hasError('required')">
+                                                Password is required!
+                                            </mat-error>
+                                      </mat-form-field>
+                                    </div>
+                                    <br/>
+                                    <button mat-raised-button color="primary" type="submit" matStepperNext>Next</button>
+                                </form>
+
+                          </mat-step>
+
+
+
+
+
+
+
+                        </mat-horizontal-stepper> -->
+                        <form  [formGroup]="myform" (ngSubmit)="onSubmit()" class="form" >
+                            <div class="cust_input login_form">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Enter Your Email</mat-label>
+                                    <input
+            type="text"
+            matInput
+            placeholder="email"
+            formControlName="email"
+            id="myInputemail"
+            autocomplete="off"
+            (ngModelChange)="this.uservalidemailupdate.next($event)"
+            (keydown.enter)="myform.controls['email'].valid && view_pass_input()"
+
+          />
+          <mat-error *ngIf="myform.controls['email'].invalid">
+            {{ getError('email_req') }}
+          </mat-error>
+          <mat-error *ngIf="myform.controls['email'].invalid">
+            {{ getError('email_req1') }}
+          </mat-error>
+          <div style="position: absolute;
+          right: -42px;
+          width: 20px;
+          background-color: #d5233b;
+          cursor: pointer;
+          border-radius: 50px;
+          padding: 13px;
+          top: -14px;" *ngIf="!myform.controls['email'].invalid && !view_pass" (click)="view_pass_input()"><img style="width: 100%;" src="../../../assets/images/rightarrow.png"></div>
+                                  </mat-form-field>
+                            </div>
+                            <div class="cust_input login_form" [ngClass]="view_pass ? 'slide-right' :''" *ngIf="view_pass">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Enter Your Password</mat-label>
+                                    <input
+                                    type="password"
+                                    matInput
+                                    placeholder="Password"
+                                    formControlName="password"
+                                    id="passInput"
+                                    autocomplete="off"
+                                  />
+                                  <mat-error *ngIf="!myform.controls['password'].valid">
+                                    {{ getError('pass') }}
+                                  </mat-error>
+                                  <button style="position: absolute;
+                                  right: -41px;
+                                  width: auto;
+                                  background-color: #d5233b;
+                                  cursor: pointer;
+                                  border-radius: 50px;
+                                  padding: 12px;
+                                  top: -18px;
+                                  display: flex;
+                                  padding-top: 16px;
+                                  padding-bottom: 16px;"  *ngIf="!myform.controls['password'].invalid" type="submit" ><img style="width: 25px;" src="../../../assets/images/rightarrow.png"></button>
+                                  </mat-form-field>
+                            </div>
+                            <!-- <div class="form-element creat_bt " fxLayout="column" fxLayoutAlign="space-between stretch">
+                                <button mat-flat-button color="primary"   type="submit" class="login_bt_curved">
+                                  LOGIN
+                                </button>
+                              </div> -->
+                        </form>
+
+                      </div>
+                      <div>
+                        <div class="creat_bt" style="text-align: center;" *ngIf="resetpassbt">
+                          <button (click)="resteform()" mat-flat-button color="primary">Back To Login</button>
+                        </div>
+                      </div>
+                <div *ngIf="login_show" class="forg_pass_wrp" fxLayout="row" fxLayoutAlign="center center" >
+                <div >
+                    <div style="font-size: 0.8rem;color: #9FA8B2;">
+                        <!-- {{loginmode? 'Don’t have an account?' : 'already have'}}  &nbsp; -->
+                        Don’t have an account?&nbsp;&nbsp;
+                    </div>
+                </div>
+                <div class="forgot_pass" [routerLink]="['/signup']" >
+                     Click Here
+
+                </div>
+
+                </div>
+              <!--   <div class="cust_input singin_bt" fxLayout="column" fxLayoutAlign="center stretch" >
+                    <button mat-flat-button color="primary">Sigin in</button>
+                </div>
+                <div class="video_cont"  fxLayout="row" fxLayoutAlign="space-between center" >
+                    <div class="vid_text" fxFlex="65">How to use WMS, click here to watch the tutorial. </div>
+                    <div class="cust_input " fxFlex="35" fxLayout="row" fxLayoutAlign="end center" >
+                        <button mat-flat-button color="primary"><img class="play_bt" src="../../../assets/images/play_bt.png"> Watch Now</button>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    </div>
+    <figure id="background">
+      <img src="../../../assets/images/logionewelcom.png" style="position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-right: -50%;
+      transform: translate(-50%, -50%);width: 300px;">
+    </figure>
+
+
+</div>
+

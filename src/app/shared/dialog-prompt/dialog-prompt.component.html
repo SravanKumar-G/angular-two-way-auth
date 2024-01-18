@@ -1,0 +1,42 @@
+
+
+<div *ngIf="!view_selectpromt">
+  <div mat-dialog-title>{{data.title?  data.title : "Are you sure?"}}</div>
+  <div mat-dialog-content>
+    <p>{{data.text? data.text : "Please confirme you action"}}</p>
+    
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button mat-dialog-close>No Thanks</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Ok</button>
+  </div>
+</div>
+
+
+<div *ngIf="view_selectpromt" class="servies_popup_prom">
+  <div mat-dialog-title class="ser_cut_title">For which services you want to<br> see Dashboard ?</div>
+  <div mat-dialog-content fxLayout="row" fxLayoutAlign="center center">
+    <div class="cust_input_toggle_group cust_tog_filter_popup">
+    <mat-button-toggle-group [value]="value" (change)="change($event)" multiple >
+      <mat-button-toggle *ngFor="let option of options" [value]="option.categoryId" [disabled]="(option.name == 'Billing' )? true:false">
+        <div class="icon">
+          <img src="./../../assets/images/{{option.categoryId}}_icon.png">
+          <img src="./../../assets/images/{{option.categoryId}}_icon_active.png">
+        </div>
+        {{ option.name }}
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+  </div>
+  <div mat-dialog-actions fxLayout="row" fxLayoutAlign="end stretch">
+    <div class="form-element creat_bt reset_poup" fxLayout="row" fxLayoutAlign="space-between stretch">
+      <button mat-button (click)="reseted_value()" >Reset</button>
+      <!-- <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Ok</button> -->
+      <div class="form-element creat_bt " fxLayout="column" fxLayoutAlign="space-between stretch">
+        <button mat-flat-button color="primary" [mat-dialog-close]="value" [disabled]="this.dis_abla_val"   cdkFocusInitial  type="submit" class="login_bt_curved">
+          Submit
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

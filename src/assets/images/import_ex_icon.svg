@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 54 54">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3, .cls-5 {
+        fill: none;
+      }
+
+      .cls-1, .cls-3 {
+        stroke: #d6223a;
+      }
+
+      .cls-1 {
+        stroke-width: 2px;
+      }
+
+      .cls-2 {
+        opacity: 0;
+      }
+
+      .cls-3 {
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.5px;
+      }
+
+      .cls-4 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <g id="Group_2767" data-name="Group 2767" transform="translate(-1708 -192)">
+    <g id="Rectangle_3733" data-name="Rectangle 3733" class="cls-1" transform="translate(1708 192)">
+      <rect class="cls-4" width="54" height="54" rx="10"/>
+      <rect class="cls-5" x="1" y="1" width="52" height="52" rx="9"/>
+    </g>
+    <path id="Vector" class="cls-2" d="M0,0H24V24H0Z" transform="translate(1723 207)"/>
+    <g id="Group_2766" data-name="Group 2766" transform="translate(-17 84)">
+      <path id="Vector-2" data-name="Vector" class="cls-3" d="M0,6V0L2,2" transform="translate(1751 141)"/>
+      <path id="Vector-3" data-name="Vector" class="cls-3" d="M2,0,0,2" transform="translate(1749 141)"/>
+      <path id="Vector-4" data-name="Vector" class="cls-3" d="M11.477,16.042a5.294,5.294,0,0,0,.83-10.53C10.767-3.828-2.7-.288.487,8.6" transform="translate(1745.133 126.958)"/>
+      <path id="Vector-5" data-name="Vector" class="cls-3" d="M5.2.4A3.644,3.644,0,0,0,3.491,0a3.727,3.727,0,0,0,0,7.44" transform="translate(1742.079 135.57)"/>
+      <path id="Vector-6" data-name="Vector" class="cls-2" d="M0,0H24V24H0Z" transform="translate(1764 147) rotate(180)"/>
+    </g>
+  </g>
+</svg>

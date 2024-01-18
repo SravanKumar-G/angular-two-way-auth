@@ -1,0 +1,11 @@
+@import "../../../assets/scss/mixins";
+.servies_popup_prom{
+    min-width: 400px;
+    .ser_cut_title{
+        text-align: center;
+        @include font-size(1.2);
+        line-height: normal;
+    }
+    
+}
+

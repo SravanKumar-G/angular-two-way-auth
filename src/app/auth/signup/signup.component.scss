@@ -1,0 +1,108 @@
+@import "../../../assets/scss/mixins";
+
+
+.login_warp
+{
+   @include heightwidth(initial,100vh);
+   .login_img{
+       @include heightwidth(80%,initial);
+   }
+   .login_box
+   {
+       @include heightwidth(100%,initial);
+       @include padding(40px,40px,40px,40px);
+    //    max-width: 320px;
+       .login_box_inn
+       {
+           @include heightwidth(100%, initial);
+           .loin_log_img 
+           {
+               @include heightwidth(100%,initial)
+           }
+           .login_form
+           {
+            @include heightwidth(100%, initial);
+            .log_titile
+            {
+                @include font-size(0.80);
+                @include font-weight(500);
+                @include padding(0,0,28px,0);
+            }
+           }
+       }
+   }
+}
+
+.pass_view_icon
+{
+    @include position(absolute,15px,12px,initial,initial);
+    cursor: pointer;
+    img{@include heightwidth(18px,initial)}
+}
+.forgot_pass
+{
+    color: #3062d0;
+    cursor: pointer;
+    @include font-size(0.80);
+}
+.singin_bt
+{
+    @include margin(15px,0,0,0);
+}
+.forg_pass_wrp
+{
+    @include margin(10px,0,0,0);
+}
+.video_cont
+{
+    @include margin(15px,0,0,0);
+    .vid_text
+    {
+        @include font-size(0.75);
+    }
+}
+.play_bt
+{
+    @include heightwidth(28px,initial);
+    @include margin(initial,initial,initial,-20px);
+    @include position(relative,2px,initial,initial,5px);
+}
+
+.otp_sect{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    input{
+        width: 50px;
+        margin: 20px;
+        height: 50px;
+        border-radius: 30px;
+        text-align: center;
+        font-size: 1.4rem;
+        border: transparent;
+        &:focus{
+            outline: none;
+        }
+    }
+}
+
+.inp {
+    width: 360px;
+  }
+  
+  .parent {
+    position: relative;
+  }
+  
+  .child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .fixed{
+      position: sticky;
+      top:0;
+      z-index: 999;
+  }

@@ -1,0 +1,19 @@
+
+    <div *ngIf="view_head" class="bg-300 example-sidenav" [ngClass]="{'side_nav_wrap': view_head , 'view_sidenave': sidenavWidth > 70, 'hidd_nave':view_side_nav}" mode="side"    (mouseenter)="increase()"
+    (mouseleave)="decrease()">
+        <app-side-nav   *ngIf="view_head"></app-side-nav>
+    </div>
+
+<div [ngClass]="{'men-cont-wrap': view_head, 'bg-300': view_head, 'slid_wrap':view_side_nav}"  >
+    <div *ngIf="view_side_nav" (click)="emitData();" class="sidenave_overlay"></div>
+    <app-backend-header *ngIf="this.view_head"></app-backend-header>
+
+    <router-outlet></router-outlet>
+
+<!-- <app-backend-footer *ngIf="view_head"></app-backend-footer> -->
+</div>
+
+
+
+
+
